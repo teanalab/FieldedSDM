@@ -18,10 +18,10 @@ class PredicateSubjectCountJob(args : Args) extends Job(args) {
   private val subjectsWithNames = subjectPredicates.joinWithSmaller('predicate -> 'predicateUrl, names)
 
   private val unigramsPredicates = subjectsWithNames.flatMap('predicateName -> 'unigram)
-  { predicateName : String => Util.tokens(predicateName).init }
+  { predicateName : String => Util.tokens(predicateName) }
 
   private val bigramsPredicates = subjectsWithNames.flatMap('predicateName -> 'bigram)
-  { predicateName : String => Util.tokens(predicateName).init.sliding(2).filter(_.size == 2).map(_.mkString(" ")) }
+  { predicateName : String => Util.tokens(predicateName).sliding(2).filter(_.size == 2).map(_.mkString(" ")) }
 
   private val unigramsCount = unigramsPredicates
     // .unique(('unigram, 'subject))

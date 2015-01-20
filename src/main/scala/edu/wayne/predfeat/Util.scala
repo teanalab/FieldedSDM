@@ -15,11 +15,15 @@ object Util {
 
   def tokens(text: String): List[String] = {
     val analyzer = new DbpediaLiteralAnalyzer(1)
-    val tokenStream: TokenStream = analyzer.tokenStream("", new StringReader(text))
+    val tokenStream: TokenStream = analyzer.tokenStream("", new StringReader(removeEn(text)))
     tokenStream.reset
     val tokens = read(tokenStream)
     tokenStream.end
     tokenStream.close
     tokens
+  }
+
+  def removeEn(text: String): String = {
+    text.replaceAll("\"([^\"]*)\"@en", "$1")
   }
 }
