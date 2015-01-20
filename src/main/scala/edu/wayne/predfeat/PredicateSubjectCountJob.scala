@@ -24,13 +24,13 @@ class PredicateSubjectCountJob(args : Args) extends Job(args) {
   { predicateName : String => Util.tokens(predicateName).sliding(2).filter(_.size == 2).map(_.mkString(" ")) }
 
   private val unigramsCount = unigramsPredicates
-    // .unique(('unigram, 'subject))
+    .unique(('unigram, 'subject))
     .groupBy('unigram) {_.size}
 
   unigramsCount.write(Tsv(args("unigram")))
 
   private val bigramsCount = bigramsPredicates
-    // .unique(('bigram, 'subject))
+    .unique(('bigram, 'subject))
     .groupBy('bigram) {_.size}
 
   bigramsCount.write(Tsv(args("bigram")))

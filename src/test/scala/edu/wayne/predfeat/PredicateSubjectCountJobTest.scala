@@ -40,7 +40,7 @@ object PredicateSubjectCountJobTestSpec extends Specification with TupleConversi
           outputBuffer mustContain ("spouse", 2)
           outputBuffer mustContain ("wikipage", 1)
           outputBuffer mustContain ("disambiguate", 1)
-          outputBuffer mustContain ("wikipedia", 2)
+          outputBuffer mustContain ("wikipedia", 1)
           outputBuffer mustContain ("page", 1)
         }}.
       sink[(String,Int)](Tsv("bigramFile")) {
