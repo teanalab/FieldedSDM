@@ -6,9 +6,6 @@ import org.specs.Specification
 import com.twitter.scalding._
 import ru.ksu.niimm.cll.anduin.util.FixedPathLzoTextLine
 
-/**
- * @author Nikita Zhiltsov 
- */
 @RunWith(classOf[JUnitSuiteRunner])
 class PredicateSubjectCountJobTest extends JUnit4(PredicateSubjectCountJobTestSpec)
 
