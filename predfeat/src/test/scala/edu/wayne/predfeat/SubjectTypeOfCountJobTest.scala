@@ -14,8 +14,7 @@ object SubjectTypeOfCountJobTestSpec extends Specification with TupleConversions
     JobTest("edu.wayne.predfeat.SubjectTypeOfCountJob").
       arg("triples", "triplesFile").
       arg("names", "namesFile").
-      arg("unigram", "unigramFile").
-      arg("bigram", "bigramFile").
+      arg("output", "output").
       source(TextLine("triplesFile"), List(
         ("0", "<http://dbpedia.org/resource/Cecily_of_York> <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Ralph_Scrope,_9th_Baron_Scrope_of_Masham> ."),
         ("1", "<http://dbpedia.org/resource/Bayfield_River> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Stream> ."),
@@ -26,7 +25,7 @@ object SubjectTypeOfCountJobTestSpec extends Specification with TupleConversions
         ("<http://dbpedia.org/ontology/SportsTeam>", "\"sports team\"@en \"sports team\"@en"),
         ("<http://dbpedia.org/ontology/Stream>", "\"stream\"@en")
       )).
-      sink[(String,Int)](Tsv("unigramFile")) {
+      sink[(String,Int)](Tsv("output/unigram")) {
       outputBuffer =>
         "output the correct unigram counts" in {
           outputBuffer.size must_== 3
@@ -34,7 +33,7 @@ object SubjectTypeOfCountJobTestSpec extends Specification with TupleConversions
           outputBuffer mustContain ("team", 1)
           outputBuffer mustContain ("stream", 2)
         }}.
-      sink[(String,Int)](Tsv("bigramFile")) {
+      sink[(String,Int)](Tsv("output/bigram")) {
         outputBuffer =>
         "output the correct bigram counts" in {
           outputBuffer.size must_== 1

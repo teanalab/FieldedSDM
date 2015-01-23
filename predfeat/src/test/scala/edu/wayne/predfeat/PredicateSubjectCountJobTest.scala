@@ -14,8 +14,7 @@ object PredicateSubjectCountJobTestSpec extends Specification with TupleConversi
     JobTest("edu.wayne.predfeat.PredicateSubjectCountJob").
       arg("triples", "triplesFile").
       arg("names", "namesFile").
-      arg("unigram", "unigramFile").
-      arg("bigram", "bigramFile").
+      arg("output", "output").
       source(TextLine("triplesFile"), List(
         ("0", "<http://dbpedia.org/resource/Cecily_of_York> <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/Ralph_Scrope,_9th_Baron_Scrope_of_Masham> ."),
         ("1", "<http://dbpedia.org/resource/Cecily_of_York> <http://dbpedia.org/ontology/spouse> <http://dbpedia.org/resource/John_Welles,_1st_Viscount_Welles> ."),
@@ -30,7 +29,7 @@ object PredicateSubjectCountJobTestSpec extends Specification with TupleConversi
         ("<http://dbpedia.org/ontology/predone>", "\"wikipedia\"@en"),
         ("<http://dbpedia.org/ontology/predtwo>", "\"wikipedia page\"@en \"wiki article\"@en")
       )).
-      sink[(String,Int)](Tsv("unigramFile")) {
+      sink[(String,Int)](Tsv("output/unigram")) {
       outputBuffer =>
         "output the correct unigram counts" in {
           outputBuffer.size must_== 7
@@ -42,7 +41,7 @@ object PredicateSubjectCountJobTestSpec extends Specification with TupleConversi
           outputBuffer mustContain ("wiki", 1)
           outputBuffer mustContain ("article", 1)
         }}.
-      sink[(String,Int)](Tsv("bigramFile")) {
+      sink[(String,Int)](Tsv("output/bigram")) {
         outputBuffer =>
         "output the correct bigram counts" in {
           outputBuffer.size must_== 3

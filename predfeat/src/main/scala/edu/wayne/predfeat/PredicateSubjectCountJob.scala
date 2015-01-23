@@ -20,12 +20,12 @@ class PredicateSubjectCountJob(args : Args) extends Job(args) {
     .unique(('unigram, 'subject))
     .groupBy('unigram) {_.size}
 
-  unigramsCount.write(Tsv(args("unigram")))
+  unigramsCount.write(Tsv(args("output") + "/unigram"))
 
   private val bigramsCount = bigramsPredicates
     .unique(('bigram, 'subject))
     .groupBy('bigram) {_.size}
 
-  bigramsCount.write(Tsv(args("bigram")))
+  bigramsCount.write(Tsv(args("output") + "/bigram"))
 
 }
