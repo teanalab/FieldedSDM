@@ -23,7 +23,7 @@ object SubjectTypeOfCountJobTestSpec extends Specification with TupleConversions
         ("3", "<http://dbpedia.org/resource/Nashville_Metros> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/SportsTeam> .")
       )).
       source(TypedTsv[(String, String)]("namesFile"), List(
-        ("<http://dbpedia.org/ontology/SportsTeam>", "\"sports team\"@en"),
+        ("<http://dbpedia.org/ontology/SportsTeam>", "\"sports team\"@en \"sports team\"@en"),
         ("<http://dbpedia.org/ontology/Stream>", "\"stream\"@en")
       )).
       sink[(String,Int)](Tsv("unigramFile")) {

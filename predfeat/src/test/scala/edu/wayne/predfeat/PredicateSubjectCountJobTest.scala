@@ -28,24 +28,27 @@ object PredicateSubjectCountJobTestSpec extends Specification with TupleConversi
         ("<http://dbpedia.org/ontology/spouse>", "\"spouse\"@en"),
         ("<http://dbpedia.org/ontology/wikiPageDisambiguates>", "\"Wikipage disambiguates\"@en"),
         ("<http://dbpedia.org/ontology/predone>", "\"wikipedia\"@en"),
-        ("<http://dbpedia.org/ontology/predtwo>", "\"wikipedia page\"@en")
+        ("<http://dbpedia.org/ontology/predtwo>", "\"wikipedia page\"@en \"wiki article\"@en")
       )).
       sink[(String,Int)](Tsv("unigramFile")) {
       outputBuffer =>
         "output the correct unigram counts" in {
-          outputBuffer.size must_== 5
+          outputBuffer.size must_== 7
           outputBuffer mustContain ("spouse", 2)
           outputBuffer mustContain ("wikipage", 1)
           outputBuffer mustContain ("disambiguate", 1)
           outputBuffer mustContain ("wikipedia", 1)
           outputBuffer mustContain ("page", 1)
+          outputBuffer mustContain ("wiki", 1)
+          outputBuffer mustContain ("article", 1)
         }}.
       sink[(String,Int)](Tsv("bigramFile")) {
         outputBuffer =>
         "output the correct bigram counts" in {
-          outputBuffer.size must_== 2
+          outputBuffer.size must_== 3
           outputBuffer mustContain ("wikipage disambiguate", 1)
           outputBuffer mustContain ("wikipedia page", 1)
+          outputBuffer mustContain ("wiki article", 1)
         }
     }.run.
       finish
