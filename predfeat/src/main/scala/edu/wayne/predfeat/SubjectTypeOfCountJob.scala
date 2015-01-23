@@ -10,13 +10,11 @@ class SubjectTypeOfCountJob(args : Args) extends Job(args) {
       .filter('predicate) { predicate : String => predicate == rdfType }
       .unique(('object, 'subject))
 
-  private val names = Util.namesPipe(args("names"))
+  private val withNames = typeOfs.rename(('object) -> ('name))
 
-  private val withNames = typeOfs.joinWithSmaller('object -> 'url, names)
+  private val unigramsObjects = Util.unigramsPipe(withNames, Util.urlToName)
 
-  private val unigramsObjects = Util.unigramsPipe(withNames)
-
-  private val bigramsObjects = Util.bigramsPipe(withNames)
+  private val bigramsObjects = Util.bigramsPipe(withNames, Util.urlToName)
 
   private val unigramsCount = unigramsObjects
     .unique(('unigram, 'subject))
