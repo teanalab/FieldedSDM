@@ -19,7 +19,7 @@ object Util {
 
   def tokens(text: String): List[String] = {
     val analyzer = new DbpediaLiteralAnalyzer(1)
-    val tokenStream: TokenStream = analyzer.tokenStream("", new StringReader(removeEn(text)))
+    val tokenStream: TokenStream = analyzer.tokenStream("", new StringReader(text))
     tokenStream.reset
     val tokens = read(tokenStream)
     tokenStream.end
@@ -27,8 +27,8 @@ object Util {
     tokens
   }
 
-  def removeEn(text: String): String = {
-    text.replaceAll("\"([^\"]*)\"@en", "$1")
+  def tokenizedNames(text: String) = {
+    for (m <- """\"([^\"]*)\"@en""".r findAllMatchIn text) yield tokens(m group 1)
   }
 
   def triplesPipe(arg: String)(implicit mode: Mode, fd: FlowDef) = {
@@ -46,11 +46,11 @@ object Util {
 
   def unigramsPipe(pipe: RichPipe) = {
     pipe.flatMap('name -> 'unigram)
-      { predicateName : String => Util.tokens(predicateName) }
+      { predicateName : String => Util.tokenizedNames(predicateName).flatten }
   }
 
   def bigramsPipe(pipe: RichPipe) = {
     pipe.flatMap('name -> 'bigram)
-      { name : String => Util.tokens(name).sliding(2).filter(_.size == 2).map(_.mkString(" ")) }
+      { name : String => Util.tokenizedNames(name).flatMap(_.sliding(2).filter(_.size == 2)).map(_.mkString(" ")) }
   }
 }
