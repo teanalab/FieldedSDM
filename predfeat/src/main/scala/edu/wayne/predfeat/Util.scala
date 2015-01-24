@@ -27,8 +27,13 @@ object Util {
     tokens
   }
 
-  def tokenizedNames(text: String) = {
-    for (m <- """\"([^\"]*)\"@en""".r findAllMatchIn text) yield tokens(m group 1)
+  def tokenizedNames(text: String) : Iterable[Iterable[String]] = {
+    (for (m <- """\"([^\"]*)\"@en""".r findAllMatchIn text) yield tokens(m group 1)).toIterable
+  }
+
+  def urlToName(text: String) : Iterable[Iterable[String]] = {
+    List(tokens("[A-Z\\d]".r.replaceAllIn(stripURI(text),
+      {m => " " + m.group(0).toLowerCase()})))
   }
 
   def triplesPipe(arg: String)(implicit mode: Mode, fd: FlowDef) = {
@@ -44,13 +49,13 @@ object Util {
     TypedTsv[(String, String)](arg).read.rename((0, 1) -> ('url, 'name))
   }
 
-  def unigramsPipe(pipe: RichPipe) = {
+  def unigramsPipe(pipe: RichPipe, namesExtractor: String => Iterable[Iterable[String]] = tokenizedNames) = {
     pipe.flatMap('name -> 'unigram)
-      { predicateName : String => Util.tokenizedNames(predicateName).flatten }
+      { predicateName : String => namesExtractor(predicateName).flatten }
   }
 
-  def bigramsPipe(pipe: RichPipe) = {
+  def bigramsPipe(pipe: RichPipe, namesExtractor: String => Iterable[Iterable[String]] = tokenizedNames) = {
     pipe.flatMap('name -> 'bigram)
-      { name : String => Util.tokenizedNames(name).flatMap(_.sliding(2).filter(_.size == 2)).map(_.mkString(" ")) }
+      { name : String => namesExtractor(name).flatMap(_.sliding(2).filter(_.size == 2)).map(_.mkString(" ")) }
   }
 }
