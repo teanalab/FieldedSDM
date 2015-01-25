@@ -17,13 +17,12 @@ data <- data.frame(t(apply(data, 1, function(x){x/sum(x)})))
 data$collection <- sapply(csv$filename, extract.collection.name)
 data <- data[c(6,1:5)]
 data <- data.frame(do.call(rbind, by(data[, 2:6], data[, 1], colMeans)))
+names(data) <- sapply(names(data), function(n){tail(strsplit(n, "\\.")[[1]],n=1)})
 data$group <- as.factor(row.names(data))
 levels(data$group) <- c("SemSearch_ES", "ListSearch", "INEX_LD", "QALD2")
 cairo_ps("unigrams.eps")
-stripplot(uni.attributes + uni.categories + uni.names + uni.outgoingentitynames +
-            uni.similarentitynames ~ group, data=data, pch=c(1, 2, 3, 4, 5), 
-          ylab = "Field weight")
+formula <- attributes + categories + names + outgoingentitynames + similarentitynames ~ group
+stripplot(formula, data=data, ylab = "average field weights",
+          par.settings = list(superpose.symbol = list(pch = 1:5)), auto.key = list(space = "right",
+                                                                       border=TRUE, padding.text=4))
 dev.off()
-
-
-
