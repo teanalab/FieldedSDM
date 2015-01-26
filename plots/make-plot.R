@@ -30,11 +30,11 @@ for (file in c("unigrams", "od", "unw")) {#, "fsdm")) {
         text = c("names", "attributes", "categories", "similar entity names",
             "related entity names")
     }
-    cairo_ps(paste(file, ".eps", sep=""))
+    cairo_ps(paste(file, ".eps", sep=""), height=5)
     print(stripplot(formula, data=data, ylab = "average field weights",
-                    par.settings = list(superpose.symbol = list(pch = 1:5)),
+                    par.settings = list(superpose.symbol = list(pch = 1:5, cex=1.5)),
                     auto.key = list(space = "right", border=TRUE, padding.text=4,
-                                    text=text)))
+                                    text=text), scales=list(font=2)))
     graphics.off()
     ## cairo_ps(paste(file, ".rescale.eps", sep=""))
     ## print(stripplot(formula, data=data, ylab = "average field weights", ylim=0:1,
