@@ -1,0 +1,23 @@
+/home/nikita/belegaer/queries/INEX_LD.cv1.of.5.training.galago.sdm-ca.json,"""odw"" : 0.03926534538779436 , ""uniw"" : 0.8782774292978376 , ""uww"" : 0.08245722531436817"
+/home/nikita/belegaer/queries/INEX_LD.cv2.of.5.training.galago.sdm-ca.json,"""odw"" : 0.03561482574856631 , ""uniw"" : 0.8464021602528706 , ""uww"" : 0.11798301399856305"
+/home/nikita/belegaer/queries/INEX_LD.cv3.of.5.training.galago.sdm-ca.json,"""odw"" : 0.04339359619004225 , ""uniw"" : 0.873951934876544 , ""uww"" : 0.08265446893341381"
+/home/nikita/belegaer/queries/INEX_LD.cv4.of.5.training.galago.sdm-ca.json,"""odw"" : 0.03926534538779436 , ""uniw"" : 0.8782774292978376 , ""uww"" : 0.08245722531436817"
+/home/nikita/belegaer/queries/INEX_LD.cv5.of.5.training.galago.sdm-ca.json,"""odw"" : 0.03561482574856631 , ""uniw"" : 0.8442425662565419 , ""uww"" : 0.12014260799489174"
+,
+/home/nikita/belegaer/queries/SemSearch_ES.cv1.of.5.training.galago.sdm-ca.json,"""odw"" : 0.23133304489091944 , ""uniw"" : 0.5535530656186674 , ""uww"" : 0.21511388949041316"
+/home/nikita/belegaer/queries/SemSearch_ES.cv2.of.5.training.galago.sdm-ca.json,"""odw"" : 0.22055348314711828 ,  ""uniw"" : 0.5852795330204551 , ""uww"" : 0.19416698383242673"
+/home/nikita/belegaer/queries/SemSearch_ES.cv3.of.5.training.galago.sdm-ca.json,"""odw"" : 0.08717445788384001 , ""uniw"" : 0.8627002288329519 , ""uww"" : 0.050125313283208024"
+/home/nikita/belegaer/queries/SemSearch_ES.cv4.of.5.training.galago.sdm-ca.json,"""odw"" : 0.12253420910719261 , ""uniw"" : 0.4402691460061135 , ""uww"" : 0.4371966448866938"
+/home/nikita/belegaer/queries/SemSearch_ES.cv5.of.5.training.galago.sdm-ca.json,"""odw"" : 0.20956892417531423 ,  ""uniw"" : 0.5770335972418688 , ""uww"" : 0.2133974785828169"
+,
+/home/nikita/belegaer/queries/ListSearch.cv1.of.5.training.galago.sdm-ca.json,"""odw"" : 0.09093055839890703 , ""uniw"" : 0.8612114029012881 , ""uww"" : 0.047858038699804775"
+/home/nikita/belegaer/queries/ListSearch.cv2.of.5.training.galago.sdm-ca.json,"""odw"" : 0.05267822834372578 ,  ""uniw"" : 0.8134583397695879 , ""uww"" : 0.1338634318866864"
+/home/nikita/belegaer/queries/ListSearch.cv3.of.5.training.galago.sdm-ca.json,"""odw"" : 0.09112655199908873 ,""uniw"" : 0.8634240801913657 , ""uww"" : 0.04544936780954551"
+/home/nikita/belegaer/queries/ListSearch.cv4.of.5.training.galago.sdm-ca.json,"""odw"" : 0.09112655199908874 , ""uniw"" : 0.8610320082013898 , ""uww"" : 0.0478414397995216"
+/home/nikita/belegaer/queries/ListSearch.cv5.of.5.training.galago.sdm-ca.json,"""odw"" : 0.09112655199908874 , ""uniw"" : 0.8610320082013898 , ""uww"" : 0.0478414397995216"
+,
+/home/nikita/belegaer/queries/QALD2.cv1.of.5.training.galago.sdm-ca.json,"""odw"" : 0.0826360913128809 , ""uniw"" : 0.8739799607478567 , ""uww"" : 0.04338394793926247"
+/home/nikita/belegaer/queries/QALD2.cv2.of.5.training.galago.sdm-ca.json,"""odw"" : 0.09592268631483025 , ""uniw"" : 0.8562358738856481 , ""uww"" : 0.04784143979952159"
+/home/nikita/belegaer/queries/QALD2.cv3.of.5.training.galago.sdm-ca.json,"""odw"" : 0.07542118015291645 , ""uniw"" : 0.7977675330674738 , ""uww"" : 0.1268112867796099"
+/home/nikita/belegaer/queries/QALD2.cv4.of.5.training.galago.sdm-ca.json,"""odw"" : 0.09592268631483025 , ""uniw"" : 0.8537179033698838 , ""uww"" : 0.05035941031528589"
+/home/nikita/belegaer/queries/QALD2.cv5.of.5.training.galago.sdm-ca.json,"""odw"" : 0.09614171288479219 , ""uniw"" : 0.853383887850692 , ""uww"" : 0.050474399264515905"

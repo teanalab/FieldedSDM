@@ -8,7 +8,7 @@ extract.attributes <- function(jsonString) {
     fromJSON(paste('{',jsonString,'}'))
 }
 
-for (file in c("unigrams", "od", "unw")) {#, "fsdm")) {
+for (file in c("unigrams", "od", "unw", "fsdm", "sdm")) {
     csv <- read.csv(paste(file, ".csv", sep=""), header = FALSE,
                     col.names=c("filename", "weights.json"),
                     stringsAsFactors = FALSE)[c(1:5,7:11,13:17,19:23),]
@@ -23,11 +23,15 @@ for (file in c("unigrams", "od", "unw")) {#, "fsdm")) {
     names(data) <- sapply(names(data), function(n){tail(strsplit(n, "\\.")[[1]],n=1)})
     data$group <- factor(row.names(data),
                          levels=c("SemSearch_ES", "ListSearch", "INEX_LD", "QALD2"))
-    if (file == "fsdm") {
-        formula <- a ~ b
+    if (file == "sdm") {
+        formula <- uniw + odw + uww ~ group
+        text <- c(expression(lambda[T]),expression(lambda[O]),expression(lambda[U]))
+    } else if (file == "fsdm") {
+        formula <- CONST + OD_CONST + UNW_CONST ~ group
+        text <- c(expression(lambda[T]),expression(lambda[O]),expression(lambda[U]))
     } else {
         formula <- names + attributes + categories + similarentitynames + outgoingentitynames ~ group
-        text = c("names", "attributes", "categories", "similar entity names",
+        text <- c("names", "attributes", "categories", "similar entity names",
             "related entity names")
     }
     cairo_ps(paste(file, ".eps", sep=""), height=5)
@@ -36,9 +40,4 @@ for (file in c("unigrams", "od", "unw")) {#, "fsdm")) {
                     auto.key = list(space = "right", border=TRUE, padding.text=4,
                                     text=text), scales=list(font=2)))
     graphics.off()
-    ## cairo_ps(paste(file, ".rescale.eps", sep=""))
-    ## print(stripplot(formula, data=data, ylab = "average field weights", ylim=0:1,
-    ##                 par.settings = list(superpose.symbol = list(pch = 1:5)),
-    ##                 auto.key = list(space = "right", border=TRUE, padding.text=4)))
-    ## graphics.off()
 }
