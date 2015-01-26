@@ -26,16 +26,19 @@ for (file in c("unigrams", "od", "unw", "fsdm", "sdm")) {
     if (file == "sdm") {
         formula <- uniw + odw + uww ~ group
         text <- c(expression(lambda[T]),expression(lambda[O]),expression(lambda[U]))
+        ylim <- c(-0.02,0.9)
     } else if (file == "fsdm") {
         formula <- CONST + OD_CONST + UNW_CONST ~ group
         text <- c(expression(lambda[T]),expression(lambda[O]),expression(lambda[U]))
+        ylim <- c(-0.02,0.9)
     } else {
         formula <- names + attributes + categories + similarentitynames + outgoingentitynames ~ group
         text <- c("names", "attributes", "categories", "similar entity names",
-            "related entity names")
+                  "related entity names")
+        ylim <- c(-0.02,0.6)
     }
     cairo_ps(paste(file, ".eps", sep=""), height=5)
-    print(stripplot(formula, data=data, ylab = "average field weights",
+    print(stripplot(formula, data=data, ylab = "average field weights", ylim=ylim,
                     par.settings = list(superpose.symbol = list(pch = 1:5, cex=1.5)),
                     auto.key = list(space = "right", border=TRUE, padding.text=4,
                                     text=text), scales=list(font=2)))
