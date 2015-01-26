@@ -41,9 +41,15 @@ for (file in c("unigrams", "od", "unw", "fsdm", "sdm")) {
         ylab <- "average field weights"
     }
     cairo_ps(paste(file, ".eps", sep=""), height=5)
-    print(stripplot(formula, data=data, ylab = ylab, ylim=ylim,
-                    par.settings = list(superpose.symbol = list(pch = 1:5, cex=1.5)),
-                    auto.key = list(space = "right", border=TRUE, padding.text=4,
-                                    text=text), scales=list(font=2)))
+    if (file %in% c("unigrams", "od")) {
+        print(stripplot(formula, data=data, ylab = ylab, ylim=ylim,
+                        par.settings = list(superpose.symbol = list(pch = 1:5, cex=1.5)),
+                        scales=list(font=2)))
+    } else {
+        print(stripplot(formula, data=data, ylab = ylab, ylim=ylim,
+                        par.settings = list(superpose.symbol = list(pch = 1:5, cex=1.5)),
+                        auto.key = list(space = "right", border=TRUE, padding.text=4,
+                            text=text), scales=list(font=2)))
+    }
     graphics.off()
 }
