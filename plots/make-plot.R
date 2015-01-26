@@ -21,14 +21,20 @@ for (file in c("unigrams", "od", "unw")) {#, "fsdm")) {
     data <- data.frame(do.call(rbind, by(data[, 2:ncol], data[, 1], colMeans)))
     names(data) <- sapply(names(data), function(n){tail(strsplit(n, "\\.")[[1]],n=1)})
     data$group <- factor(row.names(data), levels=c("SemSearch_ES", "ListSearch", "INEX_LD", "QALD2"))
-    cairo_ps(paste(file, ".eps", sep=""))
     if (file == "fsdm") {
         formula <- a ~ b
     } else {
-        formula <- attributes + categories + names + outgoingentitynames + similarentitynames ~ group
+        formula <- names + attributes + categories + similarentitynames + outgoingentitynames ~ group
     }
+    cairo_ps(paste(file, ".eps", sep=""))
     print(stripplot(formula, data=data, ylab = "average field weights",
               par.settings = list(superpose.symbol = list(pch = 1:5)), auto.key = list(space = "right",
                                                                            border=TRUE, padding.text=4)))
     graphics.off()
+    cairo_ps(paste(file, ".rescale.eps", sep=""))
+    print(stripplot(formula, data=data, ylab = "average field weights", ylim=0:1,
+              par.settings = list(superpose.symbol = list(pch = 1:5)), auto.key = list(space = "right",
+                                                                           border=TRUE, padding.text=4)))
+    graphics.off()
+    
 }
