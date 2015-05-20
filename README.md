@@ -8,18 +8,18 @@ to understand how to configure Galago to use them.
 
 We provide retrieval results of our models and baselines we used in paper in `runs` directory.
 
-# Authors
+## Authors
 - [Nikita Zhiltsov](https://github.com/nzhiltsov) *Kazan Federal University*, [*Textocat*](http://textocat.com/)
 - [Alexander Kotov](http://www.cs.wayne.edu/kotov/) *Wayne State University*
 - [Fedor Nikolaev](https://github.com/fsqcds) *Wayne State University*
 
-# Acknowledgment
+## Acknowledgment
 This project was partially funded by the [Kazan Federal University](http://kpfu.ru/eng).
 
-# License
+## License
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
 
-# Citation
+## Citation
 Please cite the following paper if you use our code or ideas in your work:
 
 N. Zhiltsov, A. Kotov, and F. Nikolaev. *Fielded Sequential Dependence Model for Ad-Hoc Entity Retrieval in the Web of Data*  (to be published in ACM SIGIR, 2015).
