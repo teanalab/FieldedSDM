@@ -11,7 +11,7 @@ We provide retrieval results of our models and baselines we used in the paper in
 ## Authors
 - [Nikita Zhiltsov](https://github.com/nzhiltsov) *Kazan Federal University*, [*Textocat*](http://textocat.com/)
 - [Alexander Kotov](http://www.cs.wayne.edu/kotov/) *Wayne State University*
-- [Fedor Nikolaev](https://github.com/fsqcds) *Wayne State University*
+- [Fedor Nikolaev](https://github.com/fedorn) *Wayne State University*
 
 ## Acknowledgment
 This project was partially funded by the [Kazan Federal University](http://kpfu.ru/eng).
