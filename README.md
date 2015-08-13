@@ -1,5 +1,5 @@
 # FieldedSDM
-Fielded Sequential Dependence Model is a retrieval model for effective entity search in the Web of Data. It is a generalization of  [Sequential Dependence Model (SDM)](http://www-dev.ccs.neu.edu/home/yzsun/classes/2014Spring_CS7280/Papers/Probabilistic_Models/A%20Markov%20Random%20Field%20Model%20for%20Term%20Dependencies.pdf) by Metzler and Croft, and [Mixture of Language Models (MLM)](http://www.cs.cmu.edu/~callan/Papers/sigir03-pto.pdf) by Ogilvie and Callan.
+Fielded Sequential Dependence Model is a retrieval model for effective search of structured documents. It is a generalization of  [Sequential Dependence Model (SDM)](http://www-dev.ccs.neu.edu/home/yzsun/classes/2014Spring_CS7280/Papers/Probabilistic_Models/A%20Markov%20Random%20Field%20Model%20for%20Term%20Dependencies.pdf) by Metzler and Croft, and [Mixture of Language Models (MLM)](http://www.cs.cmu.edu/~callan/Papers/sigir03-pto.pdf) by Ogilvie and Callan.
 
 All experiments were performed using [Galago](http://sourceforge.net/p/lemur/galago/ci/default/tree/).
 The model is implemented in Java as a Galago traversal. Yet, we provide an implementation of MLM. You can find both implementations in `galago` directory.
