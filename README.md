@@ -22,4 +22,4 @@ Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/L
 ## Citation
 Please cite the following paper if you use our code or ideas in your work:
 
-N. Zhiltsov, A. Kotov, and F. Nikolaev. *Fielded Sequential Dependence Model for Ad-Hoc Entity Retrieval in the Web of Data*  (to be published in ACM SIGIR, 2015).
+N. Zhiltsov, A. Kotov, and F. Nikolaev. *Fielded Sequential Dependence Model for Ad-Hoc Entity Retrieval in the Web of Data*  (ACM SIGIR, 2015) \[[link](http://dl.acm.org/authorize.cfm?key=N90326)\]
