@@ -8,6 +8,8 @@ to understand how to configure Galago to use them. Or [ask the authors](mailto:n
 
 We provide retrieval results of our models and baselines we used in the paper in `runs` directory.
 
+Please see our [presentation](https://github.com/teanalab/FieldedSDM/blob/master/fsdm-presentation.pdf) and [paper](http://dl.acm.org/authorize.cfm?key=N90326) if you want to understand how models works in more detail.
+
 ## Authors
 - [Nikita Zhiltsov](https://github.com/nzhiltsov) *Kazan Federal University*, [*Textocat*](http://textocat.com/)
 - [Alexander Kotov](http://www.cs.wayne.edu/kotov/) *Wayne State University*
@@ -22,4 +24,4 @@ Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/L
 ## Citation
 Please cite the following paper if you use our code or ideas in your work:
 
-N. Zhiltsov, A. Kotov, and F. Nikolaev. *Fielded Sequential Dependence Model for Ad-Hoc Entity Retrieval in the Web of Data*  (ACM SIGIR, 2015) \[[link](http://dl.acm.org/authorize.cfm?key=N90326)\]
+N. Zhiltsov, A. Kotov, and F. Nikolaev. *Fielded Sequential Dependence Model for Ad-Hoc Entity Retrieval in the Web of Data*  (ACM SIGIR, 2015).
