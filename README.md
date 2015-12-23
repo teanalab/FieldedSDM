@@ -1,4 +1,6 @@
 # FieldedSDM
+**UPDATE:** FSDM was included in Galago 3.9 release [under contrib module](https://sourceforge.net/p/lemur/galago/ci/default/tree/contrib/src/main/java/org/lemurproject/galago/contrib/retrieval/traversal/FieldedSequentialDependenceTraversal.java).
+
 Fielded Sequential Dependence Model is a retrieval model for effective search of structured documents. It is a generalization of  [Sequential Dependence Model (SDM)](http://www-dev.ccs.neu.edu/home/yzsun/classes/2014Spring_CS7280/Papers/Probabilistic_Models/A%20Markov%20Random%20Field%20Model%20for%20Term%20Dependencies.pdf) by Metzler and Croft, and [Mixture of Language Models (MLM)](http://www.cs.cmu.edu/~callan/Papers/sigir03-pto.pdf) by Ogilvie and Callan.
 
 All experiments were performed on a [test collection for entity search in DBpedia](http://krisztianbalog.com/resources/sigir-2013-dbpedia/) using [Galago](http://sourceforge.net/p/lemur/galago/ci/default/tree/).
